@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Second App</string>
+    <string name="myname">이름 : 김찬영</string>
+    <string name="myhabit">취미 : 볼링,음악 듣기</string>
+    <string name="mylike">좋아하는 것 : 놀기</string>
+    <string name="mydislike">싫어하는 것 : 예의 없는 것</string>
+    <string name="hello">인삿말 : 안팟장님 너무 멋있어요!</string>
 </resources>

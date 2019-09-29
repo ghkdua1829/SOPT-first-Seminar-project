@@ -30,6 +30,10 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this,"입력하세요!",Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            val mypage=Intent(this,Mypage::class.java)
+            mypage.putExtra("Id",id)
+            mypage.putExtra("Pw",password)
+            startActivity(mypage)
 
         }
         signup?.setOnClickListener{
