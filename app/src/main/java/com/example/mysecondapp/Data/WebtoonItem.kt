@@ -1,4 +1,4 @@
-package com.example.mysecondapp.Webtoon_RecyclerView
+package com.example.mysecondapp.Data
 
 data class WebtoonItem(
     var src:Int,

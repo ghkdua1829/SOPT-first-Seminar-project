@@ -1,12 +1,15 @@
-package com.example.mysecondapp
+package com.example.mysecondapp.feature.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import com.example.mysecondapp.feature.gituser.MypageActivity
+import com.example.mysecondapp.R
+import com.example.mysecondapp.feature.signup.SignupActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,14 +25,14 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this,"입력하세요!",Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            val mypage=Intent(this,MypageActivity::class.java)
+            val mypage=Intent(this, MypageActivity::class.java)
             mypage.putExtra("Id",id)
             mypage.putExtra("Pw",password)
             startActivity(mypage)
 
         }
         signup?.setOnClickListener{
-            val intent=Intent(this,SignupActivity::class.java)
+            val intent=Intent(this, SignupActivity::class.java)
             startActivityForResult(intent,3000)
         }
 

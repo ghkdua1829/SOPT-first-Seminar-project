@@ -1,11 +1,10 @@
-package com.example.mysecondapp.Webtoon_RecyclerView
+package com.example.mysecondapp.feature.webtoon
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mysecondapp.Data.WebtoonItem
 import com.example.mysecondapp.R
 
 class WebtoonAdapter (private val context: Context): RecyclerView.Adapter<WebtoonViewHolder>(){

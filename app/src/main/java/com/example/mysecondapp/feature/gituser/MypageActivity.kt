@@ -1,11 +1,10 @@
-package com.example.mysecondapp
+package com.example.mysecondapp.feature.gituser
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mysecondapp.R
 import com.example.second_seminar_recyclerview.GitRepoAdapter
 import com.example.second_seminar_recyclerview.GitRepoItem
 import com.example.second_seminar_recyclerview.GitUserAdapter

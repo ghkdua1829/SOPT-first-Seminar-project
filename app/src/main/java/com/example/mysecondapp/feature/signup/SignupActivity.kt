@@ -1,12 +1,11 @@
-package com.example.mysecondapp
+package com.example.mysecondapp.feature.signup
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
+import com.example.mysecondapp.feature.login.LoginActivity
+import com.example.mysecondapp.R
 import kotlinx.android.synthetic.main.activity_signup.*
 
 class SignupActivity : AppCompatActivity() {
@@ -29,7 +28,7 @@ class SignupActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             Toast.makeText(this,"회원가입에 성공하셨습니다.",Toast.LENGTH_SHORT).show()
-            val intent= Intent(this,MainActivity::class.java)
+            val intent= Intent(this, LoginActivity::class.java)
             intent.putExtra("Id",EdtId)
             intent.putExtra("Pw",Edtpassword)
             setResult(3000,intent)

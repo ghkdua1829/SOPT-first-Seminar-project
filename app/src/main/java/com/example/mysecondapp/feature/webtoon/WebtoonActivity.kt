@@ -1,19 +1,14 @@
-package com.example.mysecondapp
+package com.example.mysecondapp.feature.webtoon
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mysecondapp.Webtoon_RecyclerView.WebtoonAdapter
-import com.example.mysecondapp.Webtoon_RecyclerView.WebtoonItem
-import com.example.second_seminar_recyclerview.GitRepoAdapter
-import com.example.second_seminar_recyclerview.GitRepoItem
+import com.example.mysecondapp.Data.WebtoonItem
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.SnapHelper
-
-
-
+import com.example.mysecondapp.R
 
 
 class WebtoonActivity:AppCompatActivity(){

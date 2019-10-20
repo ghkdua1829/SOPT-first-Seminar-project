@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MypageActivity"></activity>
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".WebtoonActivity"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".feature.gituser.MypageActivity"></activity>
+        <activity android:name=".feature.signup.SignupActivity" />
+        <activity android:name=".feature.webtoon.WebtoonActivity"/>
+        <activity android:name=".feature.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

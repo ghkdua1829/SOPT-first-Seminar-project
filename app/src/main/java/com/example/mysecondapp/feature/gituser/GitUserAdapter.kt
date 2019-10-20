@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mysecondapp.MypageActivity
+import com.example.mysecondapp.feature.gituser.MypageActivity
 import com.example.mysecondapp.R
-import com.example.mysecondapp.WebtoonActivity
+import com.example.mysecondapp.feature.webtoon.WebtoonActivity
 
 class GitUserAdapter(private val context: Context):RecyclerView.Adapter<GitUserViewHolder>(){
 
