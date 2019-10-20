@@ -7,22 +7,14 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_signup.*
 
 class SignupActivity : AppCompatActivity() {
-    var EdtName:EditText?=null
-    var EdtId:EditText?=null
-    var Edtpassword:EditText?=null
-    var Edtpassword2:EditText?=null
-    var tv_signup:TextView?=null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
-        tv_signup=findViewById(R.id.tv_signup)
-        EdtName=findViewById(R.id.EdtName)
-        EdtId=findViewById(R.id.EdtId)
-        Edtpassword=findViewById(R.id.Edtpassword)
-        Edtpassword2=findViewById(R.id.Edtpassword2)
         tv_signup?.setOnClickListener {
             val Edt_name=EdtName?.text.toString()
             val EdtId=EdtId?.text.toString()
