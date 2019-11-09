@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".feature.gituser.MypageActivity">
 
-    <TextView
-        android:id="@+id/myId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="196dp"
-        android:layout_marginTop="156dp"
-        android:text="Id"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/myImg"
         android:layout_width="100dp"
@@ -37,40 +27,40 @@
         app:layout_constraintTop_toBottomOf="@+id/myImg" />
 
     <TextView
-        android:id="@+id/myhabit"
+        android:id="@+id/myblogname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:text="@string/myhabit"
+        android:text="블로그이름 : "
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myname" />
 
     <TextView
-        android:id="@+id/mylike"
+        android:id="@+id/myfollowers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:text="@string/mylike"
+        android:text="팔로워수"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myhabit" />
+        app:layout_constraintTop_toBottomOf="@+id/myblogname" />
 
     <TextView
-        android:id="@+id/mydislike"
+        android:id="@+id/myfollowings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:text="@string/mydislike"
+        android:text="팔로잉수"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mylike" />
+        app:layout_constraintTop_toBottomOf="@+id/myfollowers" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:text="@string/hello"
+        android:text="닉네임"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mydislike" />
+        app:layout_constraintTop_toBottomOf="@+id/myfollowings" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/SoptRecyclerView"
@@ -78,6 +68,6 @@
         android:layout_height="300dp"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/nickname" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

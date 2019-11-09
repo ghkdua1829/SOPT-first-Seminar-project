@@ -5,8 +5,11 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.mysecondapp.Data.GitUserInfoItem
 import com.example.mysecondapp.R
 import com.example.mysecondapp.Server.GithubServicelmpl
+import com.example.mysecondapp.feature.Preferences.App
 import com.example.second_seminar_recyclerview.GitRepoAdapter
 import com.example.second_seminar_recyclerview.GitRepoItem
 import com.example.second_seminar_recyclerview.GitUserAdapter
@@ -27,8 +30,29 @@ class MypageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mypage)
 
-        myId?.setText(intent.getStringExtra("Id"))
-//        Id = intent.getStringExtra("Id")
+    val myUserInfo: Call<GitUserInfoItem> = GithubServicelmpl.service.getUserInfo(App.prefs.main_id)
+
+    myUserInfo.enqueue(
+        object : Callback<GitUserInfoItem>{
+            override fun onFailure(call: Call<GitUserInfoItem>, t: Throwable) {
+                Log.e("Error : ",t.toString())
+            }
+
+            override fun onResponse(
+                call: Call<GitUserInfoItem>,
+                response: Response<GitUserInfoItem>
+            ) {
+                val gitUserInfo = response.body()!!
+                Glide.with(this@MypageActivity).load(gitUserInfo.myImg).into(myImg)
+                myname.setText(gitUserInfo.userId)
+                myblogname.setText(gitUserInfo.blogName)
+                myfollowers.setText(gitUserInfo.followers)
+                myfollowings.setText(gitUserInfo.following)
+                nickname.setText(gitUserInfo.nickname)
+
+            }
+        }
+    )
 
         if(intent?.getStringExtra("timeline").equals("yes")){
             initGitRepoList()
@@ -48,7 +72,7 @@ class MypageActivity : AppCompatActivity() {
 
         SoptRecyclerView.layoutManager=LinearLayoutManager(this)
 
-        val myRepo: Call<List<GitRepoItem>> = GithubServicelmpl.service.getRepos("ghkdua1829")
+        val myRepo: Call<List<GitRepoItem>> = GithubServicelmpl.service.getRepos(App.prefs.main_id)
 
         myRepo.enqueue(
             object : Callback<List<GitRepoItem>>{
@@ -68,6 +92,7 @@ class MypageActivity : AppCompatActivity() {
                 }
             }
         )
+
 //        GitRepoAdapter.data= listOf(
 //            GitRepoItem(
 //                name = "SoptStagram",
