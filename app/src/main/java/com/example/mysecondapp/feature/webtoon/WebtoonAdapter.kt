@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mysecondapp.Data.WebtoonItem
+import com.example.mysecondapp.data.WebtoonItem
 import com.example.mysecondapp.R
 
 class WebtoonAdapter (private val context: Context): RecyclerView.Adapter<WebtoonViewHolder>(){

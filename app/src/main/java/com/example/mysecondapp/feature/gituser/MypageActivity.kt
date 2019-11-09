@@ -6,9 +6,9 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.mysecondapp.Data.GitUserInfoItem
+import com.example.mysecondapp.data.GitUserInfoItem
 import com.example.mysecondapp.R
-import com.example.mysecondapp.Server.GithubServicelmpl
+import com.example.mysecondapp.server.GithubServicelmpl
 import com.example.mysecondapp.feature.Preferences.App
 import com.example.second_seminar_recyclerview.GitRepoAdapter
 import com.example.second_seminar_recyclerview.GitRepoItem

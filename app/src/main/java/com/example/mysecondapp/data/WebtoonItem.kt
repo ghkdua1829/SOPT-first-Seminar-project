@@ -1,4 +1,4 @@
-package com.example.mysecondapp.Data
+package com.example.mysecondapp.data
 
 data class WebtoonItem(
     var src:Int,

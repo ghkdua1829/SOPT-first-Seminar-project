@@ -1,8 +1,7 @@
-package com.example.mysecondapp.Server
+package com.example.mysecondapp.server
 
-import com.example.mysecondapp.Data.GitUserInfoItem
+import com.example.mysecondapp.data.GitUserInfoItem
 import com.example.second_seminar_recyclerview.GitRepoItem
-import com.example.second_seminar_recyclerview.GitUserItem
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
