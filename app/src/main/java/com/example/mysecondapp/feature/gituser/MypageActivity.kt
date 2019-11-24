@@ -1,15 +1,15 @@
 package com.example.mysecondapp.feature.gituser
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.mysecondapp.data.GitUserInfoItem
 import com.example.mysecondapp.R
-import com.example.mysecondapp.server.GithubServicelmpl
+import com.example.mysecondapp.data.GitUserInfoItem
 import com.example.mysecondapp.feature.Preferences.App
+import com.example.mysecondapp.server.GithubServicelmpl
 import com.example.second_seminar_recyclerview.GitRepoAdapter
 import com.example.second_seminar_recyclerview.GitRepoItem
 import com.example.second_seminar_recyclerview.GitUserAdapter
@@ -29,6 +29,7 @@ class MypageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mypage)
+
 
     val myUserInfo: Call<GitUserInfoItem> = GithubServicelmpl.service.getUserInfo(App.prefs.main_id)
 
@@ -61,7 +62,7 @@ class MypageActivity : AppCompatActivity() {
         initGitUserList()
 
     }
-
+    
 
     private fun initGitRepoList(){
         SoptRecyclerView=findViewById(R.id.SoptRecyclerView)
@@ -79,7 +80,6 @@ class MypageActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<List<GitRepoItem>>, t: Throwable) {
                     Log.e("error : ",t.toString())
                 }
-
                 override fun onResponse(
                     call: Call<List<GitRepoItem>>,
                     response: Response<List<GitRepoItem>>
