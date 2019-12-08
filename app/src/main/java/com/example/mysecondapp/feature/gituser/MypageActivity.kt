@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mysecondapp.R
 import com.example.mysecondapp.data.GitUserInfoItem
-import com.example.mysecondapp.feature.Preferences.App
+import com.example.mysecondapp.data.HeaderInfoItem
+import com.example.mysecondapp.feature.preferences.App
 import com.example.mysecondapp.server.GithubServicelmpl
 import com.example.second_seminar_recyclerview.GitRepoAdapter
 import com.example.second_seminar_recyclerview.GitRepoItem
@@ -23,15 +24,23 @@ class MypageActivity : AppCompatActivity() {
 
     private lateinit var SoptRecyclerView: RecyclerView
     private lateinit var GitRepoAdapter: GitRepoAdapter
-    private lateinit var GitUserAdapter:GitUserAdapter
+    private lateinit var GitUserAdapter: GitUserAdapter
+    private lateinit var headerAdapter: Adapter
 
 //    private  lateinit var Id:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mypage)
 
-
     val myUserInfo: Call<GitUserInfoItem> = GithubServicelmpl.service.getUserInfo(App.prefs.main_id)
+
+    SoptRecyclerView=findViewById(R.id.SoptRecyclerView)
+
+    headerAdapter= Adapter(this)
+
+    SoptRecyclerView.adapter=headerAdapter
+
+    SoptRecyclerView.layoutManager= LinearLayoutManager(this)
 
     myUserInfo.enqueue(
         object : Callback<GitUserInfoItem>{
@@ -44,25 +53,73 @@ class MypageActivity : AppCompatActivity() {
                 response: Response<GitUserInfoItem>
             ) {
                 val gitUserInfo = response.body()!!
-                Glide.with(this@MypageActivity).load(gitUserInfo.myImg).into(myImg)
-                myname.setText(gitUserInfo.userId)
-                myblogname.setText(gitUserInfo.blogName)
-                myfollowers.setText(gitUserInfo.followers)
-                myfollowings.setText(gitUserInfo.following)
-                nickname.setText(gitUserInfo.nickname)
-
+                headerAdapter.headerdata = gitUserInfo
+                headerAdapter.notifyDataSetChanged()
             }
         }
     )
 
-        if(intent?.getStringExtra("timeline").equals("yes")){
-            initGitRepoList()
-        }
-        else
-        initGitUserList()
+    headerAdapter.data= mutableListOf(
+        GitUserItem(
+            userId = "Kim Chan Young",
+            userName = "내 타임라인 보러가기",
+            userImage = 0
+        ),
+        GitUserItem(
+            userId = "webtoon",
+            userName = "웹툰 보러 가기",
+            userImage = 0
+        ),
+        GitUserItem(
+            userId = "ghkdua1829",
+            userName = "Kim Chan Young",
+            userImage = 0
+        ),
+        GitUserItem(
+            userId = "ghkdua1829",
+            userName = "Kim Chan Young",
+            userImage = 0
+        ),
+        GitUserItem(
+            userId = "ghkdua1829",
+            userName = "Kim Chan Young",
+            userImage = 0
+        ),
+        GitUserItem(
+            userId = "ghkdua1829",
+            userName = "Kim Chan Young",
+            userImage = 0
+        )
+    )
+    headerAdapter.notifyDataSetChanged()
+
+//        if(intent?.getStringExtra("timeline").equals("yes")){
+//            initGitRepoList()
+//        }
+//        else
+//        initGitUserList()
 
     }
-    
+
+    fun<T> Call<T>.enqueue(onFailure: (Throwable)->Unit,
+                           onResponse: (Response<T>)->Unit){
+        object : Callback<List<GitRepoItem>>{
+        override fun onFailure(call: Call<List<GitRepoItem>>, t: Throwable) {
+            Log.e("error : ",t.toString())
+        }
+
+        override fun onResponse(
+            call: Call<List<GitRepoItem>>,
+            response: Response<List<GitRepoItem>>
+        ) {
+            if(response.isSuccessful){
+                val gitRepos = response.body()
+                GitRepoAdapter.data = gitRepos!!
+                GitRepoAdapter.notifyDataSetChanged()
+            }
+        }}}
+
+
 
     private fun initGitRepoList(){
         SoptRecyclerView=findViewById(R.id.SoptRecyclerView)
@@ -71,7 +128,7 @@ class MypageActivity : AppCompatActivity() {
 
         SoptRecyclerView.adapter=GitRepoAdapter
 
-        SoptRecyclerView.layoutManager=LinearLayoutManager(this)
+        SoptRecyclerView.layoutManager= LinearLayoutManager(this)
 
         val myRepo: Call<List<GitRepoItem>> = GithubServicelmpl.service.getRepos(App.prefs.main_id)
 

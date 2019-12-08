@@ -1,4 +1,4 @@
-package com.example.mysecondapp.feature.Preferences
+package com.example.mysecondapp.feature.preferences
 
 import android.content.Context
 import android.content.SharedPreferences
