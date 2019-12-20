@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mysecondapp.R
 import com.example.mysecondapp.server.GithubServicelmpl
 import com.example.mysecondapp.server.TestItem
+import com.example.mysecondapp.server.TestUser
+import com.example.mysecondapp.server.TestUser22
+import kotlinx.android.synthetic.main.item.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,7 +25,7 @@ class TestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
         TestUserList()
-
+        TestUser()
     }
 
     private fun TestUserList(){
@@ -44,6 +47,29 @@ class TestActivity : AppCompatActivity() {
                         val testlist = response.body()!!
                         TestAdaper.test_data=testlist.userlist
                         TestAdaper.notifyDataSetChanged()
+                    }
+                }
+            }
+        )
+    }
+
+    private fun TestUser(){
+        val testuser :Call<TestUser22> = GithubServicelmpl.git_service.postTest(
+            TestUser(
+                name="kcy",
+                job = "police"
+            )
+        )
+
+        testuser.enqueue(
+            object : Callback<TestUser22>{
+                override fun onFailure(call: Call<TestUser22>, t: Throwable) {
+                    Log.e("error is ",t.toString())
+                }
+
+                override fun onResponse(call: Call<TestUser22>, response: Response<TestUser22>) {
+                    if(response.isSuccessful){
+                        Log.e("data is ",response.body().toString())
                     }
                 }
             }
