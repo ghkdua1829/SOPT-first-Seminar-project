@@ -13,8 +13,5 @@ class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
-        val sumFunction:(Int,Int)->Int = { a:Int,b:Int -> sum(a,b)
-        }
     }
-    fun sum(a:Int,b:Int):Int = a + b
 }

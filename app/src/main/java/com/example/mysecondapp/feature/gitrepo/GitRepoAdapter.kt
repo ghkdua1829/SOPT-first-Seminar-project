@@ -23,11 +23,4 @@ class GitRepoAdapter(private val context: Context):RecyclerView.Adapter<GitRepoV
     override fun onBindViewHolder(holder: GitRepoViewHolder, position: Int) {
         holder.bind(data[position])
     }
-
-    override fun getItemViewType(position: Int): Int {
-        return if(position == 0) ViewType.HEADER.ordinal else ViewType.ENTRY.ordinal
-    }
-    enum class ViewType{
-        HEADER,ENTRY
-    }
 }

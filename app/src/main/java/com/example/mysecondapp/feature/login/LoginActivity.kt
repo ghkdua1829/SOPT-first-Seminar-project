@@ -1,12 +1,14 @@
 package com.example.mysecondapp.feature.login
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.mysecondapp.feature.gituser.MypageActivity
 import com.example.mysecondapp.R
-import com.example.mysecondapp.feature.preferences.App
+import com.example.mysecondapp.feature.Preferences.App
 import com.example.mysecondapp.feature.signup.SignupActivity
 import kotlinx.android.synthetic.main.activity_main.*
 

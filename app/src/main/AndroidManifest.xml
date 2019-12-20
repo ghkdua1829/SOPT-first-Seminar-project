@@ -3,7 +3,7 @@
     package="com.example.mysecondapp">
 <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:name=".feature.preferences.App"
+        android:name=".feature.Preferences.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
